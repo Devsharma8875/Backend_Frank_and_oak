@@ -1,5 +1,5 @@
 // staticPaths.js
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = "https://backend-frank-and-oak.onrender.com";
 
 module.exports = {
   CATEGORY_STATIC_PATH: `${BASE_URL}/uploads/category/`,

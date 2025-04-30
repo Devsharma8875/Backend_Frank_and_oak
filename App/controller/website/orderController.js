@@ -1,6 +1,7 @@
 const orderModal = require("../../modal/orderModal");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
+const { PRODUCT_STATIC_PATH } = require("../../config/staticPaths.js");
 
 let instance = new Razorpay({
   key_id: "rzp_test_cG92Bks4ytEZmv",
@@ -213,7 +214,7 @@ let viewOrderDetail = async (req, res) => {
     if (orderData) {
       res.status(200).json({
         status: 1,
-        path: process.env.PRODUCT_STATIC_PATH,
+        path: PRODUCT_STATIC_PATH,
         data: orderData,
       });
     } else {

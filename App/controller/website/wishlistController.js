@@ -1,5 +1,5 @@
 const { wishlistModal } = require("../../modal/wishlistModal");
-
+const { PRODUCT_STATIC_PATH } = require("../../config/staticPaths.js");
 let saveToWishlist = async (req, res) => {
   try {
     if (req.body.user) {
@@ -42,7 +42,7 @@ let viewWishlist = async (req, res) => {
     res.status(200).json({
       status: 1,
       data: wishlistData,
-      path: process.env.PRODUCT_STATIC_PATH,
+      path: PRODUCT_STATIC_PATH,
     });
   } catch (error) {
     res.status(500).json({

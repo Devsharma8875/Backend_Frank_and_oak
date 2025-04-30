@@ -1,4 +1,5 @@
 const { productModal } = require("../../modal/admin/productModal");
+const { PRODUCT_STATIC_PATH } = require("../../config/staticPaths.js");
 
 const activeProducts = async (req, res) => {
   try {
@@ -11,7 +12,7 @@ const activeProducts = async (req, res) => {
 
     res.status(200).json({
       status: 1,
-      path: process.env.PRODUCT_STATIC_PATH,
+      path: PRODUCT_STATIC_PATH,
       data: productList,
     });
   } catch (error) {
@@ -36,7 +37,7 @@ const productDetail = async (req, res) => {
         res.status(200).json({
           status: 1,
           data: productDetail,
-          path: process.env.PRODUCT_STATIC_PATH,
+          path: PRODUCT_STATIC_PATH,
         });
       } else {
         res.status(200).json({
@@ -88,7 +89,7 @@ const filteredProductData = async (req, res) => {
     res.status(200).json({
       status: 1,
       data: productData,
-      path: process.env.PRODUCT_STATIC_PATH,
+      path: PRODUCT_STATIC_PATH,
     });
   } catch (error) {
     res.status(500).json({

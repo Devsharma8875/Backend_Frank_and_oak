@@ -2,7 +2,10 @@ const { categoryModel } = require("../../modal/admin/categoryModal");
 const { colorModal } = require("../../modal/admin/colorModal");
 const { sizeModal } = require("../../modal/admin/sizeModal");
 const { subcategoryModel } = require("../../modal/admin/subCategoryModal");
-
+const {
+  CATEGORY_STATIC_PATH,
+  SUBCATEGORY_STATIC_PATH,
+} = require("../../config/staticPaths.js");
 let parentCategory = async (req, res) => {
   try {
     let parentData = await categoryModel.find({ categoryStatus: true });
@@ -37,9 +40,9 @@ let parentSubCategory = async (req, res) => {
     res.status(200).json({
       status: 1,
       parentCategoryData: parentData,
-      parentCatPath: process.env.CATEGORY_STATIC_PATH,
+      parentCatPath: CATEGORY_STATIC_PATH,
       subCategoryData: subCatData,
-      subCatPath: process.env.SUBCATEGORY_STATIC_PATH,
+      subCatPath: SUBCATEGORY_STATIC_PATH,
     });
   } catch (error) {
     console.error("Error in parentSubCategory:", error);

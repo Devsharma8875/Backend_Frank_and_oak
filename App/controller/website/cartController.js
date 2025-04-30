@@ -1,5 +1,5 @@
 const { cartModal } = require("../../modal/cartModal");
-
+const { PRODUCT_STATIC_PATH } = require("../../config/staticPaths.js");
 let createCart = async (req, res) => {
   try {
     // console.log(req.body)
@@ -33,7 +33,7 @@ let viewCart = async (req, res) => {
       .populate("color");
     res.status(200).json({
       status: 1,
-      path: process.env.PRODUCT_STATIC_PATH,
+      path: PRODUCT_STATIC_PATH,
       data: cartData,
     });
   } catch (error) {
